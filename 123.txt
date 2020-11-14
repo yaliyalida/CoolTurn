@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk">
+<title>数字华容道</title>
+<!--设置style  css渲染部分-->
+<style type="text/css">
+    /* 设置间距 */
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+/* 渲染重新开始按钮样式 */
+	#btns>button{
+		width: 100px;
+		height: 30px;
+		border: 2;
+		background:yellow;
+		color:black;
+
+	}
+	/* 标题步数居中，且元素的上下外边距为0*/
+	#content{
+		text-align: center;
+		margin: 0 auto;
+	}
+	/* 这个是设置div块  游戏界面  */
+	#grid{
+		border: 1px solid #0082df;
+		width: 300px;
+		margin: 20px auto;
+		height: 300px;
+	}
+	#grid>div{
+		float: left;
+		width: 33%;
+		background: gray;
+		height: 33%;
+		margin-bottom:1px;
+		margin-right :1px;
+	}
+	.num{
+		background:#0082df;
+		width: 99%;
+		height: 99%;
+		color:white;
+		font-size: 30px;
+		font-weight: bold;
+		line-height:99px;
+	}
+</style>
+
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+<!--button元素  点击重新开始就重新将count设置为0 -->
+$( document ).ready( function() {
+
+	$('button').click( function() {
+		count = 0;
+		$('#count').html( count );
+		arr=[];
+
+		load();
+	} );
+
+	$('button').click();
+
+} );
+
+var arr = [];
+var count=0;
+
+function load() {
+	for ( var i=0; arr.length<8; i++ ) {
+		var num = Math.ceil( Math.random() * 8 );/*大于等于该数值的最小整数*/
+
+		if ( arr.indexOf(num) == -1 ) {
+			arr.push(num);
+		}
+	}
+
+	arr.push("");
+	render();
+}
+
+load();
+
+function render() {
+	var html="";
+
+	for ( var i=0; i<arr.length; i++ ) {
+		if ( arr[i] == "" ) {
+			html += "<div></div>";
+		} else {
+			html += "<div><div id='rect" + arr[i] + "' class='num' >"
+							+ arr[i] + "</div></div>";
+		}
+	}
+
+	$('#grid').html( html );
+
+
+	$( '#rect1' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect2' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect3' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect4' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect5' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect6' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect7' ).click( function() {
+		toMove( this );
+	} );
+
+	$( '#rect8' ).click( function() {
+		toMove( this );
+	} );
+
+}
+
+function toMove( obj ) {
+	var value = Number( $(obj).text() );
+	var index = arr.indexOf(value);
+
+	if ( arr[index+3] == "" ) {
+		arr[index]=arr[index+3];
+		arr[index+3]=value;
+		count++;
+		render();
+	}
+
+	if ( arr[index-3] == "" ) {
+		arr[index]=arr[index-3];
+		arr[index-3]=value;
+		count++;
+		render();
+	}
+
+	if(arr[index+1]==""){
+		arr[index]=arr[index+1];
+		arr[index+1]=value;
+		count++;
+		render();
+	}
+
+	if ( arr[index-1] == "" ) {
+		arr[index]=arr[index-1];
+		arr[index-1]=value;
+		count++;
+		render();
+	}
+
+	$( '#count' ).html( count );
+
+	if ( endGame() ) {
+		alert( "完成" );
+	}
+}
+
+function endGame() {
+	arr[arr.indexOf("")] = 9;
+
+	for ( var i=0; i<arr.length-2; i++ ) {
+		if ( arr[arr.length-1] == 9 ) {
+			if ( arr[i] > arr[i+1] ) {
+				arr[arr.indexOf(9)] = "";
+				return false;
+			}
+		} else {
+			arr[arr.indexOf(9)] = "";
+			return false;
+		}
+	}
+
+	arr[arr.indexOf(9)] = "";
+	return true;
+}
+</script>
+
+</head>
+<body>
+
+    <div id="content">
+    	<h1>步数<span id="count">0</span></h1>
+    	<div id="grid">
+    	</div>
+    	<div id="btns">
+    		<button>重新开始</button>
+    	</div>
+    </div>
+
+</body>
+</html>
