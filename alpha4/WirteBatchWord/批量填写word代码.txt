@@ -1,0 +1,15 @@
+# pattern = '{[\s\S]}'  # 为匹配所有被特殊标记{}包裹的字符所设计的规则
+# write_num = len(re.findall(pattern=pattern,string=content))
+
+            if enter == '':  # 后续还可通过不输入内容来设置公共字段
+                while True:
+                    try:
+                        choice = input("检测到此次输入为空,您是想将该字段设置为公共字段吗？(是/否)(y/n):\n")
+                        if choice not in optional:  # 如果输入不在可选字符范围
+                            raise ValueError("需输入'是'、'否'、'y'、'n'中的一个字符")
+                        break
+                    except Exception as err:
+                        print("输入不符合要求:{}\n请重新输入".format(repr(err)))
+                if choice in sure:  # 如果设置为公共字段
+                    print("已将该公共字段值批量填写到每一份word文件中")
+                    break
