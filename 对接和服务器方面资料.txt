@@ -1,0 +1,3 @@
+搭建静态网站：https://blog.csdn.net/qq_41308489/article/details/109806257
+flask框架教程：https://github.com/luhuisicnu/The-Flask-Mega-Tutorial-zh
+ajax教程：https://www.bilibili.com/video/BV1wV411k7GC
