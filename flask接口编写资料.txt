@@ -1,0 +1,6 @@
+get/post 方式，form/数据的获取：
+https://blog.csdn.net/qq_34146899/article/details/52582688?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control
+flask使用request获取表单提交数据：
+https://www.cnblogs.com/yanshanketang/p/10746697.html
+解决ajax跨域问题【5种解决方案】
+https://blog.csdn.net/itcats_cn/article/details/82318092
