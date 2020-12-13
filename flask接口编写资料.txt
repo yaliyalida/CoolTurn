@@ -4,3 +4,7 @@ flask使用request获取表单提交数据：
 https://www.cnblogs.com/yanshanketang/p/10746697.html
 解决ajax跨域问题【5种解决方案】
 https://blog.csdn.net/itcats_cn/article/details/82318092
+flask中接收与发送json方式详解
+https://blog.csdn.net/u013416034/article/details/103343489?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4.control
+flask处理前台POST过来的JSON
+https://blog.csdn.net/qq_29113041/article/details/80392597
